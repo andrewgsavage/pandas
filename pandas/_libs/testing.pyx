@@ -151,6 +151,11 @@ cpdef assert_almost_equal(a, b,
                 return True
 
         else:
+            # this fails, possible solutions:
+            # - update isiterable so it recognises that input isn't iterable
+            #   even though it has an '__iter__' method
+            # - update how a_is_ndarray is determined so it instead checks whether
+            #   the a is numpy-like (whatever numpy-like means)
             na, nb = len(a), len(b)
 
         if na != nb:

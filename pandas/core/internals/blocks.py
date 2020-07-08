@@ -1855,6 +1855,7 @@ class ExtensionBlock(Block):
 
         result = self.values.copy()
         icond = ~cond
+        # this would need an updated is_scalar
         if lib.is_scalar(other):
             set_other = other
         else:

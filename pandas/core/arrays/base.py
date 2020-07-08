@@ -564,6 +564,7 @@ class ExtensionArray:
 
         mask = self.isna()
 
+        # this would need an updated is_array_like
         if is_array_like(value):
             if len(value) != len(self):
                 raise ValueError(

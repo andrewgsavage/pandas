@@ -265,6 +265,7 @@ def array(
         StringArray,
     )
 
+    # this would need an updated is_scalar
     if lib.is_scalar(data):
         msg = f"Cannot pass scalar '{data}' to 'pandas.array'."
         raise ValueError(msg)

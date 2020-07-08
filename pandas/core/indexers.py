@@ -142,6 +142,7 @@ def check_setitem_lengths(indexer, value, values) -> None:
     """
     # boolean with truth values == len of the value is ok too
     if isinstance(indexer, (np.ndarray, list)):
+        # this would need an updated is_list_like
         if is_list_like(value) and len(indexer) != len(value):
             if not (
                 isinstance(indexer, np.ndarray)
@@ -155,6 +156,7 @@ def check_setitem_lengths(indexer, value, values) -> None:
 
     elif isinstance(indexer, slice):
         # slice
+        # this would need an updated is_list_like
         if is_list_like(value) and len(values):
             if len(value) != length_of_indexer(indexer, values):
                 raise ValueError(
