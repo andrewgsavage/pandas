@@ -1807,6 +1807,8 @@ def searchsorted(arr, value, side="left", sorter=None):
         # Before searching below, we therefore try to give `value` the
         # same dtype as `arr`, while guarding against integer overflows.
         iinfo = np.iinfo(arr.dtype.type)
+        
+        # need new is_scalars here for TestMethods.test_searchsorted
         value_arr = np.array([value]) if is_scalar(value) else np.array(value)
         if (value_arr >= iinfo.min).all() and (value_arr <= iinfo.max).all():
             # value within bounds, so no overflow, so can convert value dtype
